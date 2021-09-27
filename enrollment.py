@@ -16,7 +16,7 @@ class Enrollment:
         return sum(grades)/len(grades)
 
     def get_final_mark(self) -> float:
-        total_sum = float(sum(self.received_marks))
+        total_sum = float(sum(self.received_marks.values()))
         return total_sum / len(self.received_marks)
 
     def __str__(self):
