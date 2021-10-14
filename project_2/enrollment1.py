@@ -1,4 +1,4 @@
-from course import Course
+from course1 import Course
 from datetime import datetime
 
 
@@ -12,12 +12,8 @@ class Enrollment:
         for date, grade in self.received_marks.items():
             if date <= date_to:
                 grades.append(grade)
-
         return sum(grades)/len(grades)
 
     def get_final_mark(self) -> float:
         total_sum = float(sum(self.received_marks.values()))
         return total_sum / len(self.received_marks)
-
-    def __str__(self):
-        return f"Received marks are {self.received_marks}"

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from course import Course, CourseInformation
+from project_1.course import Course, CourseInformation
 from staff import Professor, Student
 
 
