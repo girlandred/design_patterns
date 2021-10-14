@@ -1,4 +1,4 @@
-from project_1.course import Course
+from lab_1.course import Course
 from datetime import datetime
 
 

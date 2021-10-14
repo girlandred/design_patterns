@@ -1,7 +1,7 @@
 from typing import List
 
-from project_1.course import Course
-from project_1.enrollment import Enrollment
+from lab_1.course import Course
+from lab_1.enrollment import Enrollment
 
 
 class Staff:
