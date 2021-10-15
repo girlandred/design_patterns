@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import List
+
 from staff1 import Staff
 
 
@@ -14,6 +15,29 @@ class CourseInformation:
 
 
 class Course:
+    """
+        Represents course taken in universities.
+
+        ...
+
+        Attributes:
+        ----------
+            name : str
+                title of the course.
+            date : datetime
+                course starting date.
+            seminars_number : int
+                number of seminars in the course.
+            fee : float
+                course fee.
+
+        Methods:
+        --------
+            add_student(student: Student)
+                Stands for adding student to the course.
+            remove_student(student: Student)
+                Stands for removing student from the course
+        """
     def __init__(self, id_: int, course_info: CourseInformation):
         self.id = id_
         self.course_info = course_info
