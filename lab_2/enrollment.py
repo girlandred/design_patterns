@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from course1 import Course
+from course import Course
 
 
 class Enrollment:

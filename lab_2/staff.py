@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from course1 import Course, Seminar
-from enrollment1 import Enrollment
+from course import Course, Seminar
+from enrollment import Enrollment
 from personalInfo import PersonalInfo
 
 
@@ -31,17 +31,18 @@ class Staff(ABC):
         get_violation()
             Method which showing violation
     """
-    def __init__(self, _personal_info: PersonalInfo) -> None:
+
+    def __init__(self, personal_info: PersonalInfo) -> None:
         self.enrollments = list()
         self.comments = None
-        self._personal_info = _personal_info
+        self._personal_info = personal_info
 
     @property
-    def _personal_info(self) -> PersonalInfo:
+    def personal_info(self) -> PersonalInfo:
         return self._personal_info
 
-    @_personal_info.setter
-    def _personal_info(self, _personal_info: PersonalInfo) -> None:
+    @personal_info.setter
+    def personal_info(self, _personal_info: PersonalInfo) -> None:
         if isinstance(_personal_info, PersonalInfo):
             self._personal_info = PersonalInfo
         else:
@@ -95,8 +96,9 @@ class Student(Staff):
         visit_seminar(seminar: Seminar)
 
     """
-    def __init__(self, _personal_info: PersonalInfo, year: int, student_id: int, lessons_amount: int) -> None:
-        super().__init__(_personal_info=_personal_info)
+
+    def __init__(self, personal_info: PersonalInfo, year: int, student_id: int, lessons_amount: int) -> None:
+        super().__init__(personal_info=personal_info)
         self.id = student_id
         self.average_mark = 0.0
         self.year = year
@@ -118,7 +120,7 @@ class Student(Staff):
         course.add_student(student_id=self.id)
         enrollment = Enrollment(course=course)
         self.enrollments.append(enrollment)
-        print(f'{self} has enrolled in {course}')
+        return print(f'{self.personal_info.name} has enrolled in {course.course_info.title}')
 
     def unenroll(self, course: Course) -> None:
         idx = 0
@@ -126,21 +128,22 @@ class Student(Staff):
             if enrollment.course.id == course.id:
                 idx = i
                 break
-        self.enrollments[idx].course. \
+        self.enrollments[idx].course.\
             remove_student(student_id=self.id)
         del self.enrollments[idx]
+        return print(f'{self.personal_info.name} has unrolled from {course.course_info.title}')
 
     def can_enroll(self, course: Course) -> bool:
         if self.average_mark >= 4.5:
             return True
 
     def __str__(self):
-        return f"Name: {self._personal_info.name}" \
-               f"Address: {self._personal_info.address}" \
-               f"Phone number: {self._personal_info.phone_number}" \
-               f"Email: {self._personal_info.email}" \
-               f"Position: {self._personal_info.position}" \
-               f"Employed year: {self.year}"
+        return print(f"Name: {self._personal_info.name} \n"
+                     f"Address: {self._personal_info.address} \n"
+                     f"Phone number: {self._personal_info.phone_number} \n"
+                     f"Email: {self._personal_info.email} \n"
+                     f"Position: {self._personal_info.position} \n"
+                     f"Employed year: {self.year}")
 
 
 class PostgraduateStudent(Staff):
@@ -164,8 +167,9 @@ class PostgraduateStudent(Staff):
         visit_seminar(seminar: Seminar)
 
     """
-    def __init__(self, _personal_info: PersonalInfo, phd_status: str, lessons_amount: int) -> None:
-        super().__init__(_personal_info=_personal_info)
+
+    def __init__(self, personal_info: PersonalInfo, phd_status: str, lessons_amount: int) -> None:
+        super().__init__(personal_info=personal_info)
         self.phd_status = phd_status
         self.lessons_amount = lessons_amount
 
@@ -180,14 +184,14 @@ class PostgraduateStudent(Staff):
             return True
 
     def __str__(self):
-        return f"ID: {self._personal_info.id}" \
-               f"Name: {self._personal_info.name}" \
-               f"Address: {self._personal_info.address}" \
-               f"Phone number: {self._personal_info.phone_number}" \
-               f"Email: {self._personal_info.email}" \
-               f"Position: {self._personal_info.position}" \
-               f"Employed year: {self._personal_info.employed_year}" \
-               f"Status: {self.phd_status}"
+        return print(f"ID: {self._personal_info.id} \n"
+                     f"Name: {self._personal_info.name} \n"
+                     f"Address: {self._personal_info.address} \n"
+                     f"Phone number: {self._personal_info.phone_number} \n"
+                     f"Email: {self._personal_info.email} \n"
+                     f"Position: {self._personal_info.position} \n"
+                     f"Employed year: {self._personal_info.employed_year} \n"
+                     f"Status: {self.phd_status}")
 
 
 class Professor(Staff):
@@ -210,8 +214,9 @@ class Professor(Staff):
         request_support()
 
     """
-    def __init__(self, _personal_info: PersonalInfo, salary: float, lessons_amount: int) -> None:
-        super().__init__(_personal_info=_personal_info)
+
+    def __init__(self, personal_info: PersonalInfo, salary: float, lessons_amount: int) -> None:
+        super().__init__(personal_info=personal_info)
         self.salary = salary
         self.subordinate = []
         self.lessons_amount = lessons_amount
@@ -229,11 +234,11 @@ class Professor(Staff):
         pass
 
     def __str__(self):
-        return f"ID: {self._personal_info.id}" \
-               f"Name: {self._personal_info.name}" \
-               f"Address: {self._personal_info.address}" \
-               f"Phone number: {self._personal_info.phone_number}" \
-               f"Email: {self._personal_info.email}" \
-               f"Position: {self._personal_info.position}" \
-               f"Employed year: {self._personal_info.employed_year}" \
-               f"Salary: {self.salary}"
+        return print(f"ID: {self._personal_info.id} \n"
+                     f"Name: {self._personal_info.name} \n"
+                     f"Address: {self._personal_info.address} \n"
+                     f"Phone number: {self._personal_info.phone_number} \n"
+                     f"Email: {self._personal_info.email} \n"
+                     f"Position: {self._personal_info.position} \n"
+                     f"Employed year: {self._personal_info.employed_year} \n"
+                     f"Salary: {self.salary}")

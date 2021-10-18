@@ -1,8 +1,6 @@
 from datetime import datetime
 from typing import List
 
-from staff1 import Staff
-
 
 class CourseInformation:
 
@@ -38,8 +36,8 @@ class Course:
             remove_student(student: Student)
                 Stands for removing student from the course
         """
-    def __init__(self, id_: int, course_info: CourseInformation):
-        self.id = id_
+    def __init__(self, _id: int, course_info: CourseInformation):
+        self.id = _id
         self.course_info = course_info
         self.student_id_list = []
         self.seminar_list = []
@@ -72,5 +70,5 @@ class Seminar:
         if item_name in self.items:
             return f"{item_name} has been implemented"
 
-    def add_comment(self, message: str, person: Staff) -> None:
+    def add_comment(self, message: str, person) -> None:
         person.comments.append(f'{self.title}: {message}')
