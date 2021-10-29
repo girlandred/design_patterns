@@ -14,9 +14,9 @@ class Course(ABC):
         self.group_id_list = []
 
     def __str__(self):
-        return f"Current course name is {self.title}..." \
-               f"Course starts {self.starting_date}" \
-               f"Number of seminars {self.seminars_number}" \
+        return f"Current course name is {self.title} \n" \
+               f"Course starts {self.starting_date} \n"\
+               f"Number of seminars {self.seminars_number} \n" \
                f"The fee is {self.fee}"
 
     @abstractmethod
@@ -35,7 +35,7 @@ class Course(ABC):
     @abstractmethod
     def send_course_materials(self, group: group.Group) -> None:
         group_id = group.group_id
-        material = f"Some material for group {group_id}"
+        material = f"Some material for group - {group_id}"
         return print(material)
 
 
@@ -45,7 +45,7 @@ class DesignPatterns(Course):
 
     def add_group(self, group_id) -> None:
         self.group_id_list.append(group_id)
-        return print(f"Group {group_id} was enrolled into Design Patterns")
+        return print(f"Group - {group_id} was enrolled into Design Patterns")
 
     def remove_group(self, group_id) -> None:
         idx = 0
@@ -54,11 +54,11 @@ class DesignPatterns(Course):
                 idx = i
                 break
         del self.group_id_list[idx]
-        return print(f"Group {group_id} was removed from Design Patterns")
+        return print(f"Group - {group_id} was removed from Design Patterns")
 
     def send_course_materials(self, group: group.Group) -> None:
         group_id = group.group_id
-        material = f"Some material from Design Patterns for group {group_id}"
+        material = f"Some material from Design Patterns for group - {group_id}"
         return print(material)
 
 
@@ -68,7 +68,7 @@ class MachineLearning(Course):
 
     def add_group(self, group_id) -> None:
         self.group_id_list.append(group_id)
-        return print(f"Group {group_id} was enrolled into Machine Learning")
+        return print(f"Group - {group_id} was enrolled into Machine Learning")
 
     def remove_group(self, group_id) -> None:
         idx = 0
@@ -77,11 +77,11 @@ class MachineLearning(Course):
                 idx = i
                 break
         del self.group_id_list[idx]
-        return print(f"Group {group_id} was removed from Machine Learning")
+        return print(f"Group - {group_id} was removed from Machine Learning")
 
     def send_course_materials(self, group: group.Group) -> None:
         group_id = group.group_id
-        material = f"Some material Machine Learning for group {group_id}"
+        material = f"Some material Machine Learning for group - {group_id}"
         return print(material)
 
 
