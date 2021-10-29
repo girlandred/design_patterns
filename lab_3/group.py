@@ -1,3 +1,20 @@
+"""
+    Represents groups
+
+    ...
+
+    Attributes:
+    ----------
+        group_id : int
+            group's id.
+        studying_course : str
+            course which studying group.
+        quantity_of_student : int
+            information amount of student
+
+    """
+
+
 class Group:
     def __init__(self, group_id: int, studying_course: str,
                  quantity_of_student: int):
