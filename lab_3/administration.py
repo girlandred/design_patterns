@@ -70,10 +70,10 @@ class HeadDepartment(Administration):
         choice = input()
         if choice == '1':
             self.course_list.append(self.course1)
-            return print(f"Dean was attached to course. {self.course1}")
+            return print(f"Head Department was attached to course. {self.course1}")
         if choice == '2':
             self.course_list.append(self.course2)
-            return print(f"Dean was attached to course. {self.course2}")
+            return print(f"Head Department was attached to course. {self.course2}")
         else:
             return print("Wrong input")
 
@@ -86,7 +86,7 @@ class HeadDepartment(Administration):
     Attributes:
     ----------
         group_id : int
-            contain information about groups id
+            Contain information about groups id
 
     Methods:
     --------
