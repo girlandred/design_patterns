@@ -1,10 +1,22 @@
 from abc import ABC
 
-from manufacture import CocaColaFactory
 from customization import Customization
+from manufacture import CocaColaFactory
 
 
 class ProductStore(ABC):
+    """
+    Represents ProductStore interface
+
+    ...
+
+    Methods:
+    --------
+        make_product():
+            setting class instance
+
+    """
+
     def __init__(self):
         pass
 

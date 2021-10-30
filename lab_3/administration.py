@@ -4,27 +4,27 @@ from datetime import datetime
 from courses import Calculus, DesignPatterns, MachineLearning
 from personalInfo import PersonalInfo
 
-"""
-    Represents Administration class.
-
-    ...
-
-    Attributes:
-    ----------
-        group_id : int
-            contain information about groups id
-
-
-    Methods:
-    --------
-        attach_course()
-            
-        fill_course()
-            
-    """
-
 
 class Administration(ABC):
+    """
+        Represents Administration class.
+
+        ...
+
+        Attributes:
+        ----------
+            group_id : int
+                contain information about groups id
+
+
+        Methods:
+        --------
+            attach_course()
+
+            fill_course()
+
+        """
+
     def __init__(self, personal_info: PersonalInfo, group_id: int) -> None:
         self._personal_info = personal_info
         self.group_id = group_id
@@ -40,24 +40,23 @@ class Administration(ABC):
         return print(f"For group {self.group_id} was added courses")
 
 
-"""
-    Represents HeadDepartment course.
-
-    ...
-
-    Attributes:
-    ----------
-        group_id : int
-            contain information about groups id
-
-    Methods:
-    --------
-        attach_course()
-            Attaching course to head department
-    """
-
-
 class HeadDepartment(Administration):
+    """
+        Represents HeadDepartment course.
+
+        ...
+
+        Attributes:
+        ----------
+            group_id : int
+                contain information about groups id
+
+        Methods:
+        --------
+            attach_course()
+                Attaching course to head department
+        """
+
     def __init__(self, personal_info: PersonalInfo, group_id: int) -> None:
         super().__init__(personal_info, group_id)
         self.course2 = MachineLearning(id_=131, title='Machine Learning', fee=1240,
@@ -78,24 +77,23 @@ class HeadDepartment(Administration):
             return print("Wrong input")
 
 
-"""
-    Represents Dean course.
-
-    ...
-
-    Attributes:
-    ----------
-        group_id : int
-            Contain information about groups id
-
-    Methods:
-    --------
-        attach_course()
-            Attaching course to head department
-    """
-
-
 class Dean(Administration):
+    """
+        Represents Dean course.
+
+        ...
+
+        Attributes:
+        ----------
+            group_id : int
+                Contain information about groups id
+
+        Methods:
+        --------
+            attach_course()
+                Attaching course to head department
+        """
+
     def __init__(self, personal_info: PersonalInfo, group_id: int) -> None:
         super().__init__(personal_info, group_id)
         self.course = Calculus(id_=1, title='Calculus', fee=1700,
