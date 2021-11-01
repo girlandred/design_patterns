@@ -5,6 +5,7 @@ from datetime import datetime
 import courses
 from group import Group
 
+
 course1 = courses.MachineLearning(id_=131, title='Machine Learning', fee=1240,
                                   starting_date=datetime(2002, 12, 1), seminars_number=12)
 group1 = Group(12, 'Machine Learning', 24)
