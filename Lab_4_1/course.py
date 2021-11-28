@@ -20,6 +20,33 @@ class CourseInformation:
 
 
 class Course:
+    """
+        Represents course interface.
+
+        ...
+
+        Attributes:
+        ----------
+            name : str
+                title of the course.
+            date : datetime
+                course starting date.
+            seminars_number : int
+                number of seminars in the course.
+            fee : float
+                course fee.
+            group_id_list : []
+                contain group's id.
+
+        Methods:
+        --------
+            add_group()
+                Stands for adding group to the course.
+            remove_group()
+                Stands for removing group from the course
+            send_course_materials()
+                Diffuse some course material.
+        """
 
     def __init__(self, course_info: CourseInformation):
         self.course_info = course_info
@@ -61,6 +88,33 @@ class Seminar:
 
 
 class DesignPatterns(Course):
+    """
+        Represents DesignPatterns course.
+
+        ...
+
+        Attributes:
+        ----------
+            id : int
+                course id.
+            title : str
+                title of the course.
+            date : datetime
+                course starting date.
+            seminars_number : int
+                number of seminars in the course.
+            fee : float
+                course fee.
+
+        Methods:
+        --------
+            add_group()
+                Stands for adding group to the course.
+            remove_group()
+                Stands for removing group from the course
+            send_course_materials()
+                Diffuse some course material.
+        """
 
     def __init__(self, id_: int, title: str, starting_date: datetime, seminars_number: int, fee: float):
         super().__init__(id_, title, starting_date, seminars_number, fee)
@@ -84,6 +138,33 @@ class DesignPatterns(Course):
 
 
 class MachineLearning(Course):
+    """
+        Represents MachineLearning course.
+
+        ...
+
+        Attributes:
+        ----------
+            id : int
+                course id.
+            title : str
+                title of the course.
+            date : datetime
+                course starting date.
+            seminars_number : int
+                number of seminars in the course.
+            fee : float
+                course fee.
+
+        Methods:
+        --------
+            add_group()
+                Stands for adding group to the course.
+            remove_group()
+                Stands for removing group from the course
+            send_course_materials()
+                Diffuse some course material.
+        """
 
     def __init__(self, id_: int, title: str, starting_date: datetime, seminars_number: int, fee: float):
         super().__init__(id_, title, starting_date, seminars_number, fee)
@@ -107,7 +188,34 @@ class MachineLearning(Course):
 
 
 class Calculus(Course):
+    """
+           Represents Calculus course.
 
+           ...
+
+           Attributes:
+           ----------
+               id : int
+                   course id.
+               title : str
+                   title of the course.
+               date : datetime
+                   course starting date.
+               seminars_number : int
+                   number of seminars in the course.
+               fee : float
+                   course fee.
+
+           Methods:
+           --------
+               add_group()
+                   Stands for adding group to the course.
+               remove_group()
+                   Stands for removing group from the course
+               send_course_materials()
+                   Diffuse some course material.
+           """
+    
     def __init__(self, id_: int, title: str, starting_date: datetime, seminars_number: int, fee: float):
         super().__init__(id_, title, starting_date, seminars_number, fee)
 

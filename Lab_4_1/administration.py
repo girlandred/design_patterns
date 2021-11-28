@@ -21,6 +21,22 @@ class Manager(ABC):
 
 
 class Dean(Manager):
+    """
+        Represents Dean course.
+
+        ...
+
+        Attributes:
+        ----------
+            group_id : int
+                Contain information about groups id
+
+        Methods:
+        --------
+            attach_course()
+                Attaching course to head department
+        """
+
     def __init__(self, personal_info: PersonalInfo) -> None:
         super().__init__(personal_info)
 
@@ -43,6 +59,22 @@ class Dean(Manager):
 
 
 class HeadDepartment(Manager):
+    """
+        Represents HeadDepartment course.
+
+        ...
+
+        Attributes:
+        ----------
+            group_id : int
+                contain information about groups id
+
+        Methods:
+        --------
+            attach_course()
+                Attaching course to head department
+        """
+
     def attach_students(*args):
         student = Student()
         return [student]
@@ -62,6 +94,18 @@ class HeadDepartment(Manager):
 
 
 class Administration(ABC):
+    """
+        Represents Administration class.
+
+        ...
+        Methods:
+        --------
+            attach_course()
+
+            fill_course()
+
+        """
+
     __manager = None
 
     def set_manager(self, manager):

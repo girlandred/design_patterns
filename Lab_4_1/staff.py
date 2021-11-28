@@ -7,6 +7,31 @@ from Lab_4_1.personalInfo import PersonalInfo
 
 
 class Staff(ABC):
+    """
+        Represents staff.
+
+        ...
+
+        Attributes:
+        ----------
+        personal_info : PersonalInfo
+
+
+        Methods:
+        --------
+
+        taken_seminars()
+            Contain information about taken course.
+        can_enroll(seminar: Course)
+            Define if person can enroll in course.
+        @abstractmethod
+        calculate_workload()
+            Method which calculating workload
+        @abstractmethod
+        get_violation()
+            Method which showing violation
+    """
+
     def __init__(self, personal_info: PersonalInfo) -> None:
         self.enrollments = list()
         self.comments = None
@@ -42,6 +67,35 @@ class Staff(ABC):
 
 
 class Student(Staff):
+    """
+    Represents students
+
+    ...
+
+    Attributes:
+    ----------
+    ...
+    year : int
+        Contain information about year
+
+    Methods:
+    --------
+
+        can_enroll(seminar: Course)
+            Define if student can enroll in course.
+        taken_seminars()
+            Contain information about taken course.
+        enroll(course: Course)
+            Add student into course
+        unenroll(course: Course)
+            Remove student from course
+        calculate_workload()
+            Method which calculating workload
+        get_violation(message: str)
+            Method which showing violation
+        visit_seminar(seminar: Seminar)
+
+    """
 
     def __init__(self, personal_info: PersonalInfo, year: int, student_id: int, lessons_amount: int) -> None:
         super().__init__(personal_info=personal_info)
@@ -93,6 +147,26 @@ class Student(Staff):
 
 
 class PostgraduateStudent(Staff):
+    """
+    Represents postgraduate student
+
+    ...
+
+    Attributes:
+    ----------
+    ...
+    phd_status : str
+        Contain information about phd status
+
+    Methods:
+    --------
+        calculate_workload()
+            Method which calculating workload
+        get_violation(message: str)
+            Method which showing violation
+        visit_seminar(seminar: Seminar)
+
+    """
 
     def __init__(self, personal_info: PersonalInfo, phd_status: str, lessons_amount: int) -> None:
         super().__init__(personal_info=personal_info)
@@ -121,6 +195,27 @@ class PostgraduateStudent(Staff):
 
 
 class Professor(Staff):
+    """"
+    Contain information about professor
+
+    ...
+
+    Attributes:
+    ----------
+        ...
+        salary : float
+            professor's salary
+        lessons_amount : int
+            quantity of lessons
+    Methods:
+    --------
+        calculate_workload()
+            Method which calculating workload
+        add_postgraduate_student
+        get_violation(message: str)
+        request_support()
+
+    """
 
     def __init__(self, personal_info: PersonalInfo, salary: float, lessons_amount: int) -> None:
         super().__init__(personal_info=personal_info)
