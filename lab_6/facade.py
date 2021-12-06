@@ -141,10 +141,10 @@ class Processor:
 
     def operation(self):
         results = []
-        results.append("Facade initializes subsystems:")
+        results.append("Content readers: \n")
         results.append(self._pdf_parser.read_file('Lab_6_Fep_2.pdf'))
         results.append(self._docx_parser.read_file('Lab_6_Fep_2.pdf'))
-
+        results.append("Content parsers: \n")
         results.append(self._pdf_parser.parse_content('Lab_6_Fep_2.docx'))
         results.append(self._docx_parser.parse_content('Lab_6_Fep_2.docx'))
         return "\n".join(results)
