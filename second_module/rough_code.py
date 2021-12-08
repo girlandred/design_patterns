@@ -4,6 +4,9 @@ from typing import List
 
 
 class Step(ABC):
+    """
+    Base Step class include common operations
+    """
     @property
     def step_done(self) -> Step:
         return self._step_done
@@ -27,6 +30,9 @@ class Step(ABC):
 
 
 class StepFetch(Step):
+    """
+    Class represent pipeline step - fetch
+    """
     def realize(self):
         return f"Step fetch - was done"
 
@@ -35,6 +41,9 @@ class StepFetch(Step):
 
 
 class StepDecode(Step):
+    """
+    Class represent pipeline step - decode
+    """
     def realize(self):
         return f"Step decode - was done"
 
@@ -43,6 +52,9 @@ class StepDecode(Step):
 
 
 class StepExecute(Step):
+    """
+    Class represent pipeline step - execute
+    """
     def realize(self):
         return f"Step execute - was done"
 
@@ -51,6 +63,9 @@ class StepExecute(Step):
 
 
 class Pipeline(Step):
+    """
+    Represents class Pipeline, summing up result of development
+    """
     def __init__(self):
         self._steps: List[Step] = []
 
@@ -73,13 +88,16 @@ class Pipeline(Step):
 
 
 class Software(ABC):
-
+    """
+    Class represent software, have several types
+    """
     @abstractmethod
     def create(self):
         pass
 
 
 class MobileApp(Software):
+
     def create(self):
         return f'Mobile app was created'
 
@@ -95,6 +113,9 @@ class DataBaseAPI(Software):
 
 
 class TechStack(ABC):
+    """
+    Represents stack of technology, declares programming method
+    """
     def __init__(self, name):
         self.name = name
 
@@ -128,6 +149,9 @@ class JavaScript(TechStack):
 
 
 class Team(ABC):
+    """
+    Represents team
+    """
     def __init__(self, name, quantity_of_members, type_of):
         self.name = name
         self.quantity_of_members = quantity_of_members
@@ -146,16 +170,25 @@ class Member:
 
 
 class ScrumTeam(Team):
+    """
+    Represents scrum type team
+    """
     def __init__(self, name, quantity_of_members, type_of):
         super().__init__(name, quantity_of_members, type_of)
 
     def add_member(self, *args):
+        """
+        not fully implemented for this class
+        """
         members = []
         for person in members:
             print(person.name, person.surname + " was added in team", sep=' ')
 
 
 class KanbanTeam(Team):
+    """
+    Represents kanban type team
+    """
     def __init__(self, name, quantity_of_members, type_of):
         super().__init__(name, quantity_of_members, type_of)
 
@@ -167,10 +200,16 @@ class KanbanTeam(Team):
 
 
 class ScrumbanTeam(Team):
+    """
+    Represents scrumban type team
+    """
     def __init__(self, name, quantity_of_members, type_of, member: Member):
         super().__init__(name, quantity_of_members, type_of)
 
     def add_member(self, *args):
+        """
+        not fully implemented for this class
+        """
         members = []
         for person in members:
             print(person.name, person.surname + " was added in team", sep=' ')
