@@ -25,12 +25,13 @@ class Account(IAcct):
         self.balance = balance
 
     def get_balance(self):
-        return print(f'{self.balance}')
+        return print(f'Your balance {self.balance}')
 
     def withdraw(self, amount: int) -> bool:
         if amount < 0:
             return False
         else:
+            print(f'You can withdraw money')
             return True
 
 
@@ -70,7 +71,7 @@ class AccountDatabase(IDB):
         return print(f"You are logged in: {self.acc_id}")
 
     def logout(self):
-        return print(f"{self.a.withdraw(amount=10)}. You are logged out")
+        return print("You are logged out")
 
 
 class DatabaseProxy(IDB):
