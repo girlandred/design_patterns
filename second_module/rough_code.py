@@ -263,10 +263,6 @@ if __name__ == "__main__":
     client_code(pipe)
 
     print("\n")
-
-    print("Steps, which was realized: ")
-    client_code2(pipe, step_execute)
-    print("\n")
     member1 = Member('Andriy', 'Shevchenko', 3000000)
     member2 = Member('Taras', 'Iskovych', 20000)
     member3 = Member('Hryhoriy', 'Olenych', 15000)
