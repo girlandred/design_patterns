@@ -245,16 +245,19 @@ def client_code2(step1: Step, step2: Step) -> None:
 if __name__ == "__main__":
     step_execute = StepExecute()
     print("First step was done:")
-    client_code(step_execute)
+    # client_code(step_execute)
     print("\n")
     pipe = Pipeline()
     step1 = Pipeline()
     step1.add(StepFetch())
-
+    step3 = Pipeline()
+    step3.add(StepDecode())
     step2 = Pipeline()
     step2.add(StepExecute())
+
     pipe.add(step1)
     pipe.add(step2)
+    pipe.add(step3)
 
     print("SoftWare: I am almost ready for deployment: ")
     client_code(pipe)
