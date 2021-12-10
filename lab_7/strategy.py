@@ -2,6 +2,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import List
 
+
 class Board:
     def __init__(self):
         x = ["A", "B", "C", "D", "E", "F", "G", "H"]
@@ -52,24 +53,25 @@ class Rook(Piece):
 
 
 class MoveRule(ABC):
-    def __init__(self):
-        pass
+    def __init__(self, piece: Piece):
+        self.piece = piece
 
+    @abstractmethod
     def get_all_moves(self):
         pass
 
 
 class KnightMove(MoveRule):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, piece: Piece, knight: Knight):
+        super().__init__(piece)
 
     def get_all_moves(self):
         pass
 
 
 class RookMove(MoveRule):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, piece: Piece, rook: RookMove):
+        super().__init__(piece)
 
     def get_all_moves(self):
         pass
